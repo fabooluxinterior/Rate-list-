@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arc Designs Rate Card</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<meta name="description" content="Arc Designs — fixed-rate interior design: 3D renders, elevation drawings and material details for homeowners and businesses.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* VOICE: calm, tactile, a product-grade studio rate card
+   IDEA: three raised cards, like material samples lifted off a pin-up board
+   PICTURE: the cards themselves, tilting in 3D with layered depth
+   COLOUR and TYPE: soft grey stage, white cards, one colour per package; Plus Jakarta Sans + Inter
+   LAYOUT: nav, centred title, three aligned columns, footer, booking sheet */
+:root{color-scheme:light;
+  --stage:#ECECEF;--panel:#F6F6F8;--card:#FFFFFF;--ink:#121214;--muted:#6C6C75;--bd:#E3E3E8;
+  --amber:#E8811A;--amber2:#F7B548;--amberT:#B85A00;
+  --blue:#4655F5;--blue2:#8B5CF6;--blueT:#3F48DB;
+  --teal:#0E9F74;--teal2:#34C7B5;--tealT:#087A58;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --H:'Plus Jakarta Sans','Montserrat',system-ui,sans-serif;--B:'Inter',system-ui,sans-serif}
+*{box-sizing:border-box;min-width:0;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--stage);color:var(--ink);font:16px/1.55 var(--B);overflow-x:clip;min-height:100vh}
+body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(1200px 700px at 50% -10%,#FAFAFB 0%,rgba(236,236,239,0) 60%)}
+body.lock{overflow:hidden}
+html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis.lenis-stopped{overflow:hidden}
+html:not(.lenis){scroll-behavior:smooth}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:8px}
+
+/* preloader */
+.pre{position:fixed;inset:0;z-index:60;background:var(--ink);display:grid;place-items:center;transition:transform 1s var(--ease) .1s}
+.pre.out{transform:translateY(-100%)}
+.pre .pm{display:flex;flex-direction:column;align-items:center;gap:22px}
+.pre svg{width:84px;height:84px}
+.pre svg path{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.1s var(--ease) forwards}
+.pre svg path:nth-child(2){animation-delay:.18s}
+.pre svg .door{fill:url(#pg);stroke:none;opacity:0;animation:fadeIn .5s .8s forwards}
+.pre .pw{display:flex;font-family:var(--H);font-weight:600;letter-spacing:.42em;color:#fff;font-size:15px;overflow:hidden}
+.pre .pw span{display:inline-block;transform:translateY(110%);animation:up .7s var(--ease) forwards;animation-delay:calc(.5s + var(--i)*45ms)}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fadeIn{to{opacity:1}}
+@keyframes up{to{transform:none}}
+
+.wrap{position:relative;max-width:1180px;margin:0 auto;padding:0 max(4vw,16px)}
+.stage{margin:18px 0 0;padding:clamp(22px,4vw,56px) clamp(16px,3.4vw,48px) clamp(28px,4vw,52px);background:var(--panel);border-radius:40px;
+  box-shadow:inset 0 1px 0 #fff,0 1px 2px rgba(18,18,20,.04),0 40px 80px -48px rgba(18,18,20,.28)}
+
+/* nav */
+nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 4px 0}
+.brand{display:flex;align-items:center;gap:12px;font-family:var(--H);font-weight:700;font-size:15px;letter-spacing:.02em;text-decoration:none}
+.brand .logo{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:var(--ink);box-shadow:0 8px 18px -8px rgba(18,18,20,.6),inset 0 1px 0 rgba(255,255,255,.15)}
+.brand svg{width:24px;height:24px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;background:#fff;font-weight:600;font-size:14px;text-decoration:none;
+  box-shadow:0 1px 0 #fff inset,0 1px 2px rgba(18,18,20,.06),0 10px 22px -12px rgba(18,18,20,.25);transition:transform .4s var(--ease),box-shadow .4s}
+.chip:hover{transform:translateY(-2px);box-shadow:0 1px 0 #fff inset,0 16px 28px -14px rgba(18,18,20,.3)}
+
+/* title */
+.head{text-align:center;padding:6px 0 clamp(30px,4vw,52px)}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;background:#fff;font-weight:600;font-size:14.5px;
+  box-shadow:0 1px 2px rgba(18,18,20,.06),0 10px 24px -14px rgba(70,85,245,.45)}
+.pill b{background:linear-gradient(90deg,var(--blue),var(--blue2));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:600}
+.pill i{width:7px;height:7px;border-radius:50%;background:linear-gradient(135deg,var(--amber),var(--blue2));}
+h1{font-family:var(--H);font-weight:800;font-size:clamp(40px,7vw,86px);line-height:1.02;letter-spacing:-.045em;margin-top:22px;
+  background:linear-gradient(180deg,#121214 0%,#121214 45%,#4A4A52 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 18px 22px rgba(18,18,20,.14))}
+.lede{margin:18px auto 0;max-width:520px;color:var(--muted);font-size:clamp(16px,1.7vw,18px)}
+
+/* cards row */
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:clamp(14px,2vw,26px);row-gap:0;align-items:stretch;perspective:1400px}
+.plan{--c1:var(--amber);--c2:var(--amber2);--ct:var(--amberT);
+  position:relative;display:grid;grid-row:span 5;grid-template-rows:subgrid;row-gap:0;align-content:start;text-align:left;width:100%;padding:28px 26px 30px;border-radius:26px;cursor:pointer;
+  background:linear-gradient(180deg,#fff 0%,#FBFBFC 100%);
+  box-shadow:inset 0 1px 0 #fff,inset 0 0 0 1px rgba(18,18,20,.05),0 2px 4px rgba(18,18,20,.04),0 24px 44px -26px rgba(18,18,20,.32);
+  transform-style:preserve-3d;transform:perspective(1400px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(var(--ty,0px));
+  transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
+.plan.tilting{transition:transform .12s linear,box-shadow .6s var(--ease)}
+.plan:hover{--ty:-6px;box-shadow:inset 0 1px 0 #fff,inset 0 0 0 1px color-mix(in srgb,var(--c1) 35%,transparent),0 2px 4px rgba(18,18,20,.04),0 40px 60px -30px color-mix(in srgb,var(--c1) 45%,rgba(18,18,20,.35))}
+.plan:active{--ty:-2px}
+.plan.v{--c1:var(--blue);--c2:var(--blue2);--ct:var(--blueT)}
+.plan.d{--c1:var(--teal);--c2:var(--teal2);--ct:var(--tealT)}
+.plan.feat{--ty:-12px;box-shadow:inset 0 1px 0 #fff,inset 0 0 0 1.5px color-mix(in srgb,var(--c1) 45%,transparent),0 2px 4px rgba(18,18,20,.04),0 44px 70px -30px color-mix(in srgb,var(--c1) 55%,rgba(18,18,20,.3))}
+.plan.feat:hover{--ty:-16px}
+.plan:after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .4s;
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%),color-mix(in srgb,var(--c1) 9%,transparent),transparent 60%)}
+.plan:hover:after{opacity:1}
+.z1{transform:translateZ(30px)}.z2{transform:translateZ(46px)}.z3{transform:translateZ(22px)}
+
+.top{display:flex;justify-content:space-between;align-items:flex-start}
+.ico{width:52px;height:52px;border-radius:15px;display:grid;place-items:center;color:#fff;
+  background:linear-gradient(145deg,#2A2A30,#0E0E10);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 10px 20px -8px rgba(18,18,20,.55),0 0 0 4px #fff}
+.ico svg{width:28px;height:28px}
+.ico .a{stroke:var(--c2)}
+.badge{position:absolute;top:-14px;right:18px;padding:8px 14px;border-radius:10px;font-weight:600;font-size:13px;color:#fff;transform:rotate(6deg) translateZ(60px);
+  background:linear-gradient(135deg,var(--c1),var(--c2));box-shadow:0 12px 24px -8px color-mix(in srgb,var(--c1) 80%,transparent),inset 0 1px 0 rgba(255,255,255,.35)}
+.kind{display:inline-flex;align-items:center;gap:6px;padding:6px 11px;border-radius:999px;font-size:12.5px;font-weight:600;color:var(--ct);background:color-mix(in srgb,var(--c1) 10%,#fff);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c1) 22%,transparent)}
+.kind:before{content:"";width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,var(--c1),var(--c2))}
+h3{font-family:var(--H);font-weight:700;font-size:23px;letter-spacing:-.02em;margin-top:22px}
+.for{color:var(--muted);font-size:14.5px;margin-top:2px}
+.pr{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 8px;margin-top:18px;align-self:end}
+.price{flex:none;font-family:var(--H);font-weight:800;font-size:clamp(38px,3.8vw,46px);letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap;
+  background:linear-gradient(120deg,var(--ct) 10%,var(--c1) 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.per{color:var(--muted);font-size:14.5px;white-space:nowrap}
+.go{position:relative;display:flex;align-items:center;justify-content:center;min-height:50px;margin:22px 0 24px;border-radius:14px;font-weight:600;font-size:15px;color:#fff;overflow:hidden;
+  background:linear-gradient(180deg,#2B2B31,#111114);box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 1px 0 #000,0 12px 22px -10px rgba(18,18,20,.6);transition:box-shadow .4s}
+.go:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,var(--c1),var(--c2));opacity:0;transition:opacity .45s var(--ease)}
+.go span{position:relative}
+.plan:hover .go:before,.plan.feat .go:before{opacity:1}
+.plan:hover .go{box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 14px 26px -10px color-mix(in srgb,var(--c1) 75%,transparent)}
+.feats{list-style:none;display:flex;flex-direction:column;gap:13px;padding-top:22px;border-top:1px dashed var(--bd)}
+.feats li{display:flex;gap:11px;align-items:flex-start;font-size:15px;line-height:1.4;font-weight:500}
+.feats small{display:block;color:var(--muted);font-weight:400;font-size:13px}
+.ck{flex:none;width:20px;height:20px;margin-top:0}
+.ck .bg{fill:url(#none)}
+
+/* footer */
+footer{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;padding:28px 6px 40px;font-size:14px;color:var(--muted)}
+.dm{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.dm a{font-family:var(--H);font-weight:700;font-size:18px;color:var(--ink);text-decoration:none;background:linear-gradient(90deg,var(--amber),var(--blue2),var(--teal)) no-repeat left bottom/0 2px;transition:background-size .5s var(--ease)}
+.dm a:hover{background-size:100% 2px}
+
+/* entrance */
+.fu{opacity:0;transform:translateY(22px)}
+.ready .fu{animation:fadeUp .9s var(--ease) forwards;animation-delay:calc(.15s + var(--d,0)*90ms)}
+.plan.fu{opacity:0}
+.ready .plan.fu{animation:cardIn 1s var(--ease) forwards;animation-delay:calc(.15s + var(--d,0)*90ms)}
+@keyframes fadeUp{to{opacity:1;transform:none}}
+@keyframes cardIn{from{opacity:0;translate:0 40px}to{opacity:1;translate:0 0}}
+
+/* modal */
+.ov{position:fixed;inset:0;z-index:40;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(18,18,20,.35);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
+.ov.on{opacity:1;visibility:visible}
+.modal{position:relative;width:min(540px,100%);max-height:calc(100vh - 40px);overflow:auto;background:#fff;border-radius:24px;box-shadow:0 40px 80px -30px rgba(18,18,20,.5);transform:translateY(24px) scale(.98);transition:transform .55s var(--ease)}
+.ov.on .modal{transform:none}
+.mh{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:24px 62px 22px 26px;color:#fff;background:linear-gradient(135deg,#1B1B20,#0E0E10)}
+.mh:after{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,var(--c1,var(--blue)),var(--c2,var(--blue2)))}
+.mh small{display:block;font-size:12.5px;color:rgba(255,255,255,.6);font-weight:500}
+.mh h2{font-family:var(--H);font-weight:800;font-size:24px;letter-spacing:-.02em;margin-top:4px;line-height:1.15}
+.mh .mp{font-family:var(--H);font-weight:800;font-size:22px;white-space:nowrap;color:var(--c2,#fff)}
+.mh .mp span{display:block;font-family:var(--B);font-weight:500;font-size:12px;color:rgba(255,255,255,.55);text-align:right}
+.x{position:absolute;top:14px;right:14px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:22px;line-height:1;opacity:.75;transition:opacity .2s,background .2s}
+.x:hover{opacity:1;background:rgba(255,255,255,.14)}
+.prog{display:flex;gap:6px;padding:18px 26px 0}
+.prog b{flex:1;height:4px;border-radius:4px;background:#EEEEF2;transition:background .4s}
+.prog b.on{background:linear-gradient(90deg,var(--c1,var(--blue)),var(--c2,var(--blue2)))}
+.step{padding:22px 26px 28px;display:none}
+.step.on{display:block;animation:slideIn .55s var(--ease)}
+.step.on.back{animation-name:slideBack}
+@keyframes slideIn{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:none}}
+@keyframes slideBack{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:none}}
+.step h3{margin:0 0 16px;font-size:20px}
+.types{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.type{padding:20px 18px;border-radius:16px;background:#fff;text-align:left;box-shadow:inset 0 0 0 1.5px var(--bd),0 8px 18px -14px rgba(18,18,20,.3);transition:box-shadow .3s,transform .45s var(--ease)}
+.type:hover{transform:translateY(-3px);box-shadow:inset 0 0 0 1.5px var(--c1,var(--blue)),0 18px 28px -16px rgba(18,18,20,.35)}
+.type:active{transform:scale(.98)}
+.type b{display:block;font-family:var(--H);font-weight:800;font-size:26px;letter-spacing:-.02em}
+.type span{display:block;margin-top:4px;font-size:14px;color:var(--muted);line-height:1.4}
+.backb{margin-top:18px;font-size:14px;font-weight:500;color:var(--muted);padding:8px 0}
+.backb:hover{color:var(--ink)}
+label.l{display:block;font-size:13.5px;font-weight:500;color:var(--muted);margin:16px 0 8px}
+label.l:first-of-type{margin-top:0}
+.in{width:100%;font:16px var(--B);padding:14px 16px;border:1.5px solid var(--bd);border-radius:12px;background:#fff;color:var(--ink);transition:border-color .25s,box-shadow .25s;outline:none}
+.in:focus{border-color:var(--c1,var(--blue));box-shadow:0 0 0 4px color-mix(in srgb,var(--c1,var(--blue)) 16%,transparent)}
+.phone{display:flex;border:1.5px solid var(--bd);border-radius:12px;background:#fff;overflow:hidden;transition:border-color .25s,box-shadow .25s}
+.phone:focus-within{border-color:var(--c1,var(--blue));box-shadow:0 0 0 4px color-mix(in srgb,var(--c1,var(--blue)) 16%,transparent)}
+.phone span{display:grid;place-items:center;padding:0 14px;background:#F4F4F6;font-weight:500;border-right:1.5px solid var(--bd)}
+.phone .in{border:0;box-shadow:none;border-radius:0}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pills button{padding:11px 16px;min-height:44px;border-radius:999px;background:#fff;font-size:14.5px;font-weight:500;box-shadow:inset 0 0 0 1.5px var(--bd);transition:all .25s}
+.pills button:hover{box-shadow:inset 0 0 0 1.5px var(--c1,var(--blue))}
+.pills button[aria-pressed=true]{background:var(--ink);color:#fff;box-shadow:0 8px 16px -8px rgba(18,18,20,.6)}
+.err{display:none;margin-top:6px;font-size:13px;color:#C0352B}
+.err.on{display:block}
+.sub-btn{position:relative;margin-top:24px;width:100%;min-height:54px;border-radius:14px;color:#fff;font-weight:600;font-size:15.5px;overflow:hidden;
+  background:linear-gradient(180deg,#2B2B31,#111114);box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 12px 22px -10px rgba(18,18,20,.6);transition:transform .15s}
+.sub-btn:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,var(--c1,var(--blue)),var(--c2,var(--blue2)));opacity:0;transition:opacity .45s}
+.sub-btn:hover:before{opacity:1}
+.sub-btn{isolation:isolate}.sub-btn:before{z-index:-1}
+.sub-btn:active{transform:scale(.98)}
+.done{text-align:center}
+.check{width:76px;height:76px;margin:6px auto 16px}
+.check circle{stroke-dasharray:226;stroke-dashoffset:226;animation:draw .8s var(--ease) forwards}
+.check path{stroke-dasharray:50;stroke-dashoffset:50;animation:draw .5s .55s var(--ease) forwards}
+.done h3{font-size:24px;margin:0 0 8px}
+.done p{color:var(--muted);font-size:15px}
+.done .hint{margin-top:22px;font-size:14px;font-weight:600}
+.chans{display:grid;gap:10px;margin-top:14px;text-align:left}
+.ch{display:flex;align-items:center;gap:14px;min-height:56px;padding:12px 18px;border-radius:14px;background:#fff;text-decoration:none;font-weight:600;font-size:15px;box-shadow:inset 0 0 0 1.5px var(--bd);transition:box-shadow .3s,transform .45s var(--ease)}
+.ch:hover{transform:translateY(-2px);box-shadow:inset 0 0 0 1.5px var(--ink),0 14px 24px -14px rgba(18,18,20,.35)}
+.ch svg{width:24px;height:24px;flex:none}
+.ch em{margin-left:auto;font-style:normal;font-weight:400;font-size:13px;color:var(--muted)}
+.ch.wa{color:#fff;background:linear-gradient(135deg,#1FAF5A,#12884A);box-shadow:0 12px 22px -10px rgba(18,136,74,.6)}
+.ch.wa em{color:rgba(255,255,255,.8)}
+
+@media (max-width:1100px) and (min-width:760px){.pr{flex-direction:column;align-items:flex-start;gap:4px}}
+@media (max-width:1100px){.plan{padding:24px 20px 26px}.plans{gap:14px}h3{font-size:20px}.price{font-size:clamp(30px,3.6vw,44px)}.kind{font-size:11.5px;padding:5px 9px}.feats li{font-size:14px}}
+@media (max-width:759px){.plans{grid-template-columns:1fr;max-width:520px;margin:0 auto;row-gap:0}.plan{margin-bottom:18px}.plan.feat{--ty:0px}.plan.feat:hover{--ty:-6px}.plan{padding:28px 26px 30px}h3{font-size:23px}.price{font-size:44px}.feats li{font-size:15px}}
+@media (max-width:639px){
+  .stage{border-radius:28px}
+  .ov{align-items:flex-end;padding:0}
+  .modal{width:100%;border-radius:24px 24px 0 0;max-height:92vh;transform:translateY(100%)}
+  .types{grid-template-columns:1fr}
+  footer{flex-direction:column;align-items:flex-start}
+  nav .chip{padding:9px 14px;font-size:13px}
+}
+@media (prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-delay:0ms!important;transition-duration:.01ms!important}.fu,.plan.fu{opacity:1;transform:none}}
+</style>
+</head>
+<body class="lock">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="pg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E8811A"/><stop offset=".5" stop-color="#8B5CF6"/><stop offset="1" stop-color="#0E9F74"/></linearGradient></defs></svg>
+<div class="pre" id="pre" aria-hidden="true"><div class="pm">
+  <svg viewBox="0 0 100 100"><path d="M10 92V46a40 40 0 0 1 80 0v46" pathLength="1" fill="none" stroke="#fff" stroke-width="4"/><path d="M24 92V50a26 26 0 0 1 52 0v42" pathLength="1" fill="none" stroke="#fff" stroke-width="4"/><path class="door" d="M38 92V54a12 12 0 0 1 24 0v38"/></svg>
+  <div class="pw"><span style="--i:0">A</span><span style="--i:1">R</span><span style="--i:2">C</span><span style="--i:3">&nbsp;</span><span style="--i:4">D</span><span style="--i:5">E</span><span style="--i:6">S</span><span style="--i:7">I</span><span style="--i:8">G</span><span style="--i:9">N</span><span style="--i:10">S</span></div>
+</div></div>
+
+<div class="wrap">
+  <nav class="fu" style="--d:0">
+    <a class="brand" href="#" aria-label="Arc Designs home">
+      <span class="logo"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M10 92V46a40 40 0 0 1 80 0v46" fill="none" stroke="#fff" stroke-width="7"/><path d="M24 92V50a26 26 0 0 1 52 0v42" fill="none" stroke="#fff" stroke-width="7"/><path d="M38 92V54a12 12 0 0 1 24 0v38" fill="url(#pg)"/></svg></span>
+      Arc Designs
+    </a>
+    <a class="chip" href="https://instagram.com/arc.designs_" target="_blank" rel="noopener">@arc.designs_</a>
+  </nav>
+
+  <div class="stage">
+    <header class="head">
+      <span class="pill fu" style="--d:1"><i></i><b>Interior design services</b></span>
+      <h1 class="fu" style="--d:2">Design pricing,<br>made simple.</h1>
+      <p class="lede fu" style="--d:3">Clear, fixed rates for every client — homeowners and businesses alike.</p>
+    </header>
+    <main class="plans" id="rates" aria-label="Packages"></main>
+  </div>
+
+  <footer class="fu" style="--d:8">
+    <span>All prices in INR</span>
+    <div class="dm"><span>DM for a quote</span><a href="https://instagram.com/arc.designs_" target="_blank" rel="noopener">@arc.designs_</a></div>
+  </footer>
+</div>
+
+<div class="ov" id="ov" aria-hidden="true" data-lenis-prevent>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+    <div class="mh">
+      <div><small>Selected package</small><h2 id="mTitle"></h2></div>
+      <div class="mp" id="mPrice"></div>
+      <button class="x" id="close" aria-label="Close">×</button>
+    </div>
+    <div class="prog" aria-hidden="true"><b></b><b></b><b></b></div>
+    <div class="steps">
+      <section class="step" data-s="1">
+        <h3>Select your project category</h3>
+        <div class="types">
+          <button class="type" data-type="B2B"><b>B2B</b><span>Architects, Builders &amp; Studios</span></button>
+          <button class="type" data-type="B2C"><b>B2C</b><span>Homeowners &amp; Residential</span></button>
+        </div>
+      </section>
+      <section class="step" data-s="2">
+        <h3>Project details</h3>
+        <form id="form" novalidate>
+          <label class="l" for="name">Name</label>
+          <input class="in" id="name" name="name" autocomplete="name" required placeholder="Your full name">
+          <div class="err" id="eName">Please enter your name.</div>
+          <label class="l" id="ptLbl">Property type</label>
+          <div class="pills" id="pt" role="group" aria-labelledby="ptLbl"></div>
+          <div class="err" id="ePt">Please choose a property type.</div>
+          <label class="l" for="phone">Phone number</label>
+          <div class="phone"><span>+91</span><input class="in" id="phone" type="tel" inputmode="numeric" autocomplete="tel-national" maxlength="10" required placeholder="10-digit mobile number"></div>
+          <div class="err" id="ePh">Enter a valid 10-digit mobile number.</div>
+          <button class="sub-btn" type="submit">Submit Details</button>
+        </form>
+        <button class="backb" data-back="1">← Back</button>
+      </section>
+      <section class="step done" data-s="3">
+        <svg class="check" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="36" stroke="#121214" stroke-width="3"/><path d="M25 41l10 10 20-22" stroke="#000" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3 id="thx"></h3>
+        <p id="thxMsg"></p>
+        <div class="hint">Connect with us directly:</div>
+        <div class="chans">
+          <a class="ch wa" id="cWa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.7 11.7 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>WhatsApp<em>Send your details</em></a>
+          <a class="ch" href="https://instagram.com/arc.designs_" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>Instagram<em>@arc.designs_</em></a>
+          <a class="ch" id="cMail" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Mail<em id="mailTxt"></em></a>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script>
+{
+// ✉️ Set the studio's email address here — used by the "Mail" button.
+const CONTACT_EMAIL = "your-email@example.com";
+const WHATSAPP = "919188774739";
+
+const PLANS = [
+  {id:"room", cls:"", kind:"Room-wise", title:"3D Render", for:"The whole room, every wall", price:3000, per:"/ room",
+   c:["#E8811A","#F7B548"], icon:"room", feats:[["Photo-realistic 3D render of the room"],["All elevations of the room"]]},
+  {id:"view", cls:"v feat", kind:"View-wise", badge:"Full details", title:"3D View + Details", for:"One view, fully detailed", price:1500, per:"/ view",
+   c:["#4655F5","#8B5CF6"], icon:"view", feats:[["3D render of the view"],["Elevation drawing"],["Finishes details"],["Accessories details","If applicable"]]},
+  {id:"draw", cls:"d", kind:"Drawing only", title:"2D Elevation Drawing", for:"Drawings, no render", price:1000, per:"/ elevation",
+   c:["#0E9F74","#34C7B5"], icon:"draw", feats:[["Elevation drawing"],["Material details"],["Accessories details","If required"]]}
+];
+const PROPS = ["Villa","Apartment","Flat","Independent Home"];
+const rupee = n => "₹" + n.toLocaleString("en-IN");
+const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const ICONS = {
+  room:`<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"><path d="M14 3.5 23.5 9v10L14 24.5 4.5 19V9z"/><path d="M4.5 9 14 14.5 23.5 9M14 14.5v10"/><path class="a" d="M8 16.5l3 1.7v-3.4l-3-1.7z"/></svg>`,
+  view:`<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"><path d="M3 9V4h5M20 4h5v5M25 19v5h-5M8 24H3v-5"/><path d="M6.5 14s3-5 7.5-5 7.5 5 7.5 5-3 5-7.5 5-7.5-5-7.5-5z"/><circle class="a" cx="14" cy="14" r="2.4"/></svg>`,
+  draw:`<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"><path d="M6 25V10h16v15M6 16h16M14 16v9"/><path class="a" d="M6 5h16M6 3v4M22 3v4"/></svg>`
+};
+const ck = (a,b,id) => `<svg class="ck" viewBox="0 0 20 20" aria-hidden="true"><defs><linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient></defs><path d="M10 1.2l2.3 1.6 2.8-.1.9 2.6 2.3 1.6-.9 2.6.9 2.6-2.3 1.6-.9 2.6-2.8-.1L10 18.8l-2.3-1.6-2.8.1-.9-2.6-2.3-1.6.9-2.6-.9-2.6 2.3-1.6.9-2.6 2.8.1z" fill="url(#${id})"/><path d="M6.6 10.2l2.2 2.2 4.6-4.8" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
+const plansEl = document.getElementById("rates");
+plansEl.innerHTML = PLANS.map((p,i) => `
+  <button class="plan fu ${p.cls}" style="--d:${4+i}" data-id="${p.id}" aria-haspopup="dialog">
+    ${p.badge?`<span class="badge">${p.badge}</span>`:""}
+    <div class="top z2"><span class="ico">${ICONS[p.icon]}</span><span class="kind">${p.kind}</span></div>
+    <div class="z1"><h3>${p.title}</h3><div class="for">${p.for}</div></div>
+    <div class="pr z2"><span class="price" data-v="${p.price}">${rupee(p.price)}</span><span class="per">${p.per}</span></div>
+    <span class="go z3"><span>Select package</span></span>
+    <ul class="feats z1">${p.feats.map((f,j) => `<li>${ck(p.c[0],p.c[1],`g${i}${j}`)}<span>${f[0]}${f[1]?`<small>${f[1]}</small>`:""}</span></li>`).join("")}</ul>
+  </button>`).join("");
+
+/* smooth scrolling (Lenis on desktop wheel; native momentum on touch). Falls back to native smooth scroll if the library can't load. */
+let lenis = null;
+addEventListener("load", () => {
+  if(still || typeof Lenis === "undefined") return;
+  lenis = new Lenis({duration:1.1, easing:t => 1 - Math.pow(1 - t, 4), smoothWheel:true, syncTouch:false});
+  const raf = t => { lenis.raf(t); requestAnimationFrame(raf); };
+  requestAnimationFrame(raf);
+  if(!document.body.classList.contains("ready")) lenis.stop();
+});
+document.addEventListener("click", e => {
+  const a = e.target.closest('a[href^="#"]'); if(!a) return;
+  const id = a.getAttribute("href"); const el = id.length > 1 ? document.querySelector(id) : document.body;
+  if(!el) return; e.preventDefault();
+  if(lenis) lenis.scrollTo(el, {offset:-16}); else el.scrollIntoView({behavior: still ? "auto" : "smooth"});
+});
+
+/* 3D tilt */
+const fine = matchMedia("(hover:hover) and (pointer:fine)").matches;
+plansEl.querySelectorAll(".plan").forEach(c => {
+  let pend = 0;
+  c.addEventListener("pointermove", e => {
+    if(pend) return; pend = requestAnimationFrame(() => pend = 0);
+    const r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+    c.style.setProperty("--mx", x*100 + "%"); c.style.setProperty("--my", y*100 + "%");
+    if(!fine || still) return;
+    c.classList.add("tilting");
+    c.style.setProperty("--ry", ((x - .5) * 10).toFixed(2) + "deg");
+    c.style.setProperty("--rx", ((.5 - y) * 8).toFixed(2) + "deg");
+  });
+  c.addEventListener("pointerleave", () => { c.classList.remove("tilting"); c.style.setProperty("--rx","0deg"); c.style.setProperty("--ry","0deg"); });
+});
+
+/* price count-up */
+const prices = [...document.querySelectorAll(".price")];
+const lock = () => prices.forEach(el => { const t = el.textContent; el.textContent = rupee(+el.dataset.v); el.style.minWidth = ""; el.style.minWidth = Math.ceil(el.getBoundingClientRect().width) + "px"; el.style.textAlign = "right"; el.textContent = t; });
+lock(); if(document.fonts) document.fonts.ready.then(lock);
+function countUp(el, delay){
+  const v = +el.dataset.v;
+  if(still){ el.textContent = rupee(v); return; }
+  const d = 1100, ease = k => 1 - Math.pow(1 - k, 3);
+  let t0 = null;
+  const step = t => {
+    if(t0 === null) t0 = t + delay;
+    const k = Math.max(0, Math.min(1, (t - t0) / d));
+    el.textContent = rupee(Math.round(v * ease(k)));
+    if(k < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+if(!still) prices.forEach(el => el.textContent = rupee(0));
+
+function start(){
+  const pre = document.getElementById("pre");
+  pre.classList.add("out"); document.body.classList.remove("lock"); document.body.classList.add("ready"); if(lenis) lenis.start();
+  setTimeout(() => pre.remove(), 1400);
+  let first = true;
+  const io = new IntersectionObserver(es => {
+    es.filter(en => en.isIntersecting).forEach((en, j) => {
+      const i = prices.indexOf(en.target);
+      countUp(en.target, first ? 150 + (4 + i) * 90 : j * 90);
+      io.unobserve(en.target);
+    });
+    first = false;
+  }, {threshold:.25});
+  prices.forEach(el => io.observe(el));
+}
+if(still) start(); else setTimeout(start, 1700);
+
+/* booking modal */
+const ov = document.getElementById("ov"), modal = ov.querySelector(".modal"), steps = [...document.querySelectorAll(".step")], bars = [...document.querySelectorAll(".prog b")];
+const form = document.getElementById("form"), nameIn = document.getElementById("name"), phIn = document.getElementById("phone"), ptEl = document.getElementById("pt");
+let state = {}, lastFocus = null;
+ptEl.innerHTML = PROPS.map(p => `<button type="button" aria-pressed="false" data-p="${p}">${p}</button>`).join("");
+function go(n, back){
+  steps.forEach(s => s.classList.remove("on","back"));
+  const s = steps[n-1]; s.classList.add("on"); if(back) s.classList.add("back");
+  bars.forEach((b,i) => b.classList.toggle("on", i < n));
+  const f = s.querySelector("button, input"); if(f) setTimeout(() => f.focus({preventScroll:true}), 60);
+}
+function open(id){
+  const p = PLANS.find(x => x.id === id);
+  state = {plan:p, type:"", prop:""};
+  modal.style.setProperty("--c1", p.c[0]); modal.style.setProperty("--c2", p.c[1]);
+  document.getElementById("mTitle").textContent = p.title;
+  document.getElementById("mPrice").innerHTML = `${rupee(p.price)}<span>${p.per}</span>`;
+  form.reset(); ptEl.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed","false"));
+  document.querySelectorAll(".err").forEach(e => e.classList.remove("on"));
+  lastFocus = document.activeElement;
+  ov.classList.add("on"); ov.setAttribute("aria-hidden","false"); document.body.classList.add("lock"); if(lenis) lenis.stop();
+  go(1);
+}
+function close(){
+  ov.classList.remove("on"); ov.setAttribute("aria-hidden","true"); document.body.classList.remove("lock"); if(lenis) lenis.start();
+  if(lastFocus) lastFocus.focus({preventScroll:true});
+}
+plansEl.addEventListener("click", e => { const c = e.target.closest(".plan"); if(c) open(c.dataset.id); });
+document.getElementById("close").addEventListener("click", close);
+ov.addEventListener("click", e => { if(e.target === ov) close(); });
+document.addEventListener("keydown", e => { if(e.key === "Escape" && ov.classList.contains("on")) close(); });
+document.querySelectorAll(".type").forEach(b => b.addEventListener("click", () => { state.type = b.dataset.type; go(2); }));
+document.querySelectorAll("[data-back]").forEach(b => b.addEventListener("click", () => go(+b.dataset.back, true)));
+ptEl.addEventListener("click", e => {
+  const b = e.target.closest("button"); if(!b) return;
+  ptEl.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+  state.prop = b.dataset.p; document.getElementById("ePt").classList.remove("on");
+});
+phIn.addEventListener("input", () => { phIn.value = phIn.value.replace(/\D/g,"").slice(0,10); });
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  const name = nameIn.value.trim(), phone = phIn.value.trim();
+  const okN = name.length > 1, okP = !!state.prop, okPh = /^[6-9]\d{9}$/.test(phone);
+  document.getElementById("eName").classList.toggle("on", !okN);
+  document.getElementById("ePt").classList.toggle("on", !okP);
+  document.getElementById("ePh").classList.toggle("on", !okPh);
+  if(!(okN && okP && okPh)){ (!okN ? nameIn : !okPh ? phIn : ptEl.querySelector("button")).focus(); return; }
+  const p = state.plan;
+  const text = [
+    "Hello Arc Designs! I'd like to inquire about a project:", "",
+    `Package: ${p.title} (${rupee(p.price)} ${p.per})`,
+    `Client type: ${state.type}`,
+    `Name: ${name}`,
+    `Property type: ${state.prop}`,
+    `Phone: +91 ${phone}`
+  ].join("\n");
+  document.getElementById("cWa").href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
+  document.getElementById("cMail").href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(`Project inquiry: ${p.title} (${state.type}) — ${name}`)}&body=${encodeURIComponent(text)}`;
+  document.getElementById("mailTxt").textContent = CONTACT_EMAIL;
+  document.getElementById("thx").textContent = `Thank you, ${name}!`;
+  document.getElementById("thxMsg").textContent = `Your inquiry for ${p.title} is ready. Tap WhatsApp below to send it to us, and we will contact you shortly.`;
+  go(3);
+});
+}
+</script>
+</body>
+</html>
